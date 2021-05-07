@@ -37,7 +37,14 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-
+        $validator = $this->validate($request, [
+           'dni'=> 'required|string|max:9|unique:clientes',
+           'nombre'=> 'required|string|max:255',
+           'apellidos'=> 'required|string|max:255',
+           'direccion'=> 'required|string|max:255',
+           'telefono'=> 'required|max:9',
+           'pais'=> 'required|string|max:255'
+        ]);
         $clienteAdd = new Cliente;
         $clienteAdd->dni = $request->dni;
         $clienteAdd->nombre = $request->nombre;

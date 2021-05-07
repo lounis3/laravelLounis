@@ -10,6 +10,16 @@
 <body>
 <div>
     <h3>Agregar Cliente</h3>
+    <div>
+        <!-- Validacion de errores-->
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
     <form action="{{ route('store') }}" method="post">
         @csrf
 

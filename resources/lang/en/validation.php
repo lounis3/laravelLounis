@@ -134,8 +134,35 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'dni' => [
+            'required' => 'El dni es obligatorio',
+            'string' => 'El dni tiene que ser un texto',
+            'max:9' => 'El dni tiene un máximo de 9 caracteres',
+            'unique' => 'El dni debe de ser único'
+        ],
+        'nombre' => [
+            'required' => 'El nombre es obligatorio',
+            'string' => 'El nombre tiene que ser un texto',
+            'max:255' => 'El nombre es demasiado largo'
+        ],
+        'apellidos' => [
+            'required' => 'El apellido es obligatorio',
+            'string' => 'El apellido tiene que ser un texto',
+            'max:255' => 'El apellido es demasiado largo'
+        ],
+        'direccion' => [
+            'required' => 'La dirección es obligatorio',
+            'string' => 'La dirección tiene que ser un texto',
+            'max:255' => 'La dirección es demasiado larga'
+        ],
+        'telefono' => [
+            'required' => 'El teléfono es obligatorio',
+            'max:9' => 'El teléfono debe de ser de 9 dígitos'
+        ],
+        'pais' => [
+            'required' => 'El país es obligatorio',
+            'string' => 'El país tiene que ser un texto',
+            'max:255' => 'El país es demasiado largo'
         ],
     ],
 
