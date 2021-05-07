@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App;
 
 class ClienteController extends Controller
 {
@@ -14,7 +16,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        return view('inicio');
     }
 
     /**
@@ -24,7 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +37,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $clienteAdd = new Cliente;
+        $clienteAdd->dni = $request->dni;
+        $clienteAdd->nombre = $request->nombre;
+        $clienteAdd->apellidos = $request->apellidos;
+        $clienteAdd->direccion = $request->direccion;
+        $clienteAdd->telefono = $request->telefono;
+        $clienteAdd->pais = $request->pais;
+        $clienteAdd->save();
+        return back()->with('agregar', 'Cliente Agregado');
     }
 
     /**

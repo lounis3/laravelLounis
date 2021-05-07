@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ClienteController@index')->name('inicio');
+Route::post('/agregar', 'App\Http\Controllers\ClienteController@store')->name('store');
