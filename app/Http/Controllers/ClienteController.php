@@ -62,9 +62,10 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show()
     {
-        //
+        $clientes = Cliente::all();
+        return view('listaClientes')->with('clientes', $clientes);
     }
 
     /**
