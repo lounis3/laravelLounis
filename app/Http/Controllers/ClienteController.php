@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use http\Exception\BadConversionException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App;
@@ -94,11 +95,14 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param \App\Models\Cliente $dni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($dni)
     {
-        //
+        $cliente = App\Models\Cliente::find($dni);
+        $cliente->delete();
+
+        return back()->with('clienteEliminado', 'Cliente Eliminado');
     }
 }

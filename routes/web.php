@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\ClienteController@index')->name('inicio');
 Route::post('/agregar', 'App\Http\Controllers\ClienteController@store')->name('store');
 Route::get('/mostrar', 'App\Http\Controllers\ClienteController@show')->name('show');
-
+Route::delete('/borrar/{dni}', 'App\Http\Controllers\ClienteController@delete')->name('delete');
